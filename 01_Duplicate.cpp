@@ -41,7 +41,21 @@ bool containsDuplicate(vector<int> &nums)
 // time complexity : O(N) best case and O(N^2) for worst case
 // space complexity : O(N)
 
-// another method for O(1) space complexity
+/*
+ * Problem: LeetCode 217 - Contains Duplicate
+ * Pattern: Sorting & Linear Scan
+ * * Concept:
+ * When strict memory limits exist (O(1) extra space), we cannot use a Hash Set.
+ * Instead, we sort the array in-place so that any duplicate numbers are forced
+ * to sit directly next to each other. We then do a simple scan to check if any
+ * element matches its right-side neighbor.
+ * * Trade-offs:
+ * - Time Complexity: O(N log N) -> C++ std::sort() dominates the execution time.
+ * - Space Complexity: O(1) -> Sorting is done in-place. Zero extra memory used.
+ * * Critical Bug Averted:
+ * - The loop stops at `nums.size() - 1` to prevent an out-of-bounds crash when
+ * checking `nums[i + 1]` on the final iteration.
+ */
 
 bool containDuplicateNew(vector<int> &nums)
 {

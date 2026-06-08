@@ -1,17 +1,19 @@
 /*
- * Problem: LeetCode 217 - Contains Duplicate
- * Pattern: Sorting & Linear Scan
+ * Problem: LeetCode 242 - Valid Anagram
+ * Pattern: Frequency Array (Fixed-Size Hashing)
  * * Concept:
- * When strict memory limits exist (O(1) extra space), we cannot use a Hash Set.
- * Instead, we sort the array in-place so that any duplicate numbers are forced
- * to sit directly next to each other. We then do a simple scan to check if any
- * element matches its right-side neighbor.
- * * Trade-offs:
- * - Time Complexity: O(N log N) -> C++ std::sort() dominates the execution time.
- * - Space Complexity: O(1) -> Sorting is done in-place. Zero extra memory used.
- * * Critical Bug Averted:
- * - The loop stops at `nums.size() - 1` to prevent an out-of-bounds crash when
- * checking `nums[i + 1]` on the final iteration.
+ * Because the problem guarantees only lowercase English letters, we do not need
+ * a heavy Hash Map. We can use a highly efficient, fixed-size integer array of 26 slots.
+ * We iterate through both strings simultaneously: adding 1 to the tally for string 's',
+ * and subtracting 1 for string 't'. If they are perfect anagrams, every slot in the
+ * tally array will perfectly balance back to 0.
+ * * Math Trick:
+ * - Characters are stored as ASCII values. Subtracting the anchor 'a' (97) mathematically
+ * converts any letter into a perfect 0-25 array index (e.g., 'a'-'a' = 0, 'z'-'a' = 25).
+ * * Complexity:
+ * - Time Complexity: O(N) -> We process both strings in a single pass.
+ * - Space Complexity: O(1) -> The array is strictly bounded to 26 slots, regardless of
+ * how massive the input strings become. Space does not scale with input.
  */
 
 #include <vector>
