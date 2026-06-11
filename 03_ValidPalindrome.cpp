@@ -27,18 +27,17 @@ bool isPalindrome(string s)
 
     while (left < right)
     {
-        // Skip invalid characters from the left end
+
         while (left < right && !isalnum(s[left]))
         {
             left++;
         }
-        // Skip invalid characters from the right end
+
         while (left < right && !isalnum(s[right]))
         {
             right--;
         }
 
-        // Match check after converting to a uniform case
         if (tolower(s[left]) != tolower(s[right]))
         {
             return false;
