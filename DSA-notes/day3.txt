@@ -1,0 +1,25 @@
+DAY 3 — Time & Space Complexity
+================================
+Hierarchy (memorise):
+  O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2^n) < O(n!)
+
+Rules for calculating:
+  - Single loop over n = O(n)
+  - Two nested loops over n = O(n²)
+  - Loop that halves n each time = O(log n)
+  - Two recursive calls per level, depth n = O(2^n)
+  - n + (n-1) + ... + 1 = n(n+1)/2 = O(n²)
+
+Space complexity:
+  - Extra variables only = O(1)
+  - Array of size n = O(n)
+  - Recursive call stack of depth n = O(n) space
+  - Note: O(2^n) total calls but O(n) space — only depth matters, not total calls
+
+Acceptable complexity for n = 10^5:
+  - O(n) — always fine
+  - O(n log n) — fine
+  - O(n²) — TOO SLOW, will TLE
+  - O(2^n) — never acceptable
+
+Interview rule: always state time AND space complexity after writing solution

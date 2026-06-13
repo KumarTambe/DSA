@@ -1,0 +1,23 @@
+DAY 1 — Recursion Fundamentals
+===============================
+Concept: Every recursive function has exactly 2 things:
+  1. Base case — when to stop
+  2. Recursive case — smaller input + trust it works
+
+Key rule: Base case must cover the SMALLEST possible input
+  - sumOfDigits: base case is n==0, NOT n==1
+  - Trace edge cases: 0, 1, negative before finalising
+
+Patterns:
+  - Functional recursion: return value bubbles UP the stack
+  - Result computed on the way back
+
+Functions written:
+  - factorial(n): if n==0 return 1; return n*factorial(n-1)
+  - fibonacci(n): if n==0 return 0; if n==1 return 1; return fib(n-1)+fib(n-2)
+  - printNto1(n): print then recurse with n-1
+  - sumOfDigits(n): return n%10 + sumOfDigits(n/10)
+
+Complexity:
+  - factorial: O(n) time, O(n) space (call stack)
+  - fibonacci: O(2^n) time, O(n) space

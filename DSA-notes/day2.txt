@@ -1,0 +1,24 @@
+DAY 2 — Parameterised Recursion + Patterns
+===========================================
+Concept: Instead of returning upward, pass result as parameter downward
+
+Functional vs Parameterised:
+  - Functional: int factorial(n) — returns value up
+  - Parameterised: void factorial(n, result) — passes result down
+
+Key pattern — Include/Exclude (most important of Day 2):
+  At each index, make exactly 2 recursive calls:
+    Call 1: include current element — pass current + element
+    Call 2: exclude current element — pass current unchanged
+  Base case: when index == size, you've decided on all elements
+  This pattern is foundation of ALL backtracking and DP problems
+
+Functions written:
+  - printNto1Param(n, current): parameterised print
+  - isPalindrome(s, left, right): left>=right return true; mismatch return false; recurse inward
+  - power(base, exp): if exp==0 return 1; return base*power(base,exp-1)
+  - reverseNumber(n, reversed): if n==0 return reversed; return recurse(n/10, reversed*10+n%10)
+  - printSubsets(s, current, index): include/exclude pattern
+
+Common mistake: base case left>right instead of left>=right in palindrome
+  - When left==right, single character remains — it's always a palindrome
