@@ -6,7 +6,7 @@
 using namespace std;
 int largest(vector<int> &nums)
 {
-    int largestNumber = 0;
+    int largestNumber = nums[0];
     for (int i = 0; i < nums.size(); i++)
     {
         if (nums[i] > largestNumber)
@@ -18,7 +18,7 @@ int largest(vector<int> &nums)
 }
 vector<int> sumOfArray(vector<int> &num)
 {
-    for (int i = 0; i < num.size(); i++)
+    for (int i = 0; i < num.size() - 1; i++)
     {
         num[i + 1] = num[i + 1] + num[i];
     }
