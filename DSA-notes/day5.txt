@@ -1,0 +1,6 @@
+XOR pattern — Single Number:
+a ^ a = 0 (duplicates cancel)
+a ^ 0 = a (zero has no effect)
+XOR all elements → duplicates cancel → lone element remains
+Time: O(n), Space: O(1)
+Use when: find unique element, pairs cancel out
