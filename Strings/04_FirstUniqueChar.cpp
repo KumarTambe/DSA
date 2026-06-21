@@ -6,15 +6,15 @@ using namespace std;
 
 int firstUniqueCharacter(string s)
 {
-    unordered_map<char, int> map;
+    unordered_map<char, int> Map;
 
     for (int i = 0; i < s.length(); i++)
     {
-        map[s[i]]++;
+        Map[s[i]]++;
     }
     for (int i = 0; i < s.length(); i++)
     {
-        if (map[s[i]] == 1)
+        if (Map[s[i]] == 1)
         {
             return i;
         }
