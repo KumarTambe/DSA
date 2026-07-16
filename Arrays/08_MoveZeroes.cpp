@@ -1,32 +1,25 @@
-#include <iostream>
-#include <vector>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-void moveZeroes(vector<int> &nums)
-{
-    int personA = 0;
-    for (int personB = 0; personB < nums.size(); personB++)
-    {
-        if (nums[personB] != 0)
-        {
-            nums[personA] = nums[personB];
-            personA++;
+vector<int> moveZeroes(vector<int>&nums){
+    int left = 0;
+    for(int right = 0; right <nums.size();right++){
+        if(nums[right] != 0){
+            swap(nums[left],nums[right]);
+            left++;
         }
     }
-    while (personA < nums.size())
-    {
-        nums[personA] = 0;
-        personA++;
+    while(left < nums.size()){
+        nums[left] = 0;
+        left++;
     }
+    return nums;
 }
 
-int main()
-{
-    vector<int> nums = {0, 1, 0, 3, 12};
-    moveZeroes(nums);
-    for (auto x : nums)
-    {
-        cout << x << endl;
+int main(){
+    vector<int> nums = {0, 0, 1};
+    vector<int> result = moveZeroes(nums);
+    for( auto X : result){
+        cout << X << " ";
     }
 }
