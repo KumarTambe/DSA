@@ -12,7 +12,9 @@ struct TreeNode{
 };
 
 TreeNode invertTree(TreeNode* root){
-    if(root == nullptr) return nullptr;
+    if(root == nullptr){
+        return nullptr;
+    }
     swap(root->left, root->right);
     invertTree(root->left);
     inertTree(root->right);
