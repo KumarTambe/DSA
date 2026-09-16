@@ -1,5 +1,6 @@
-class Solution {
-public:
+#include<bits/stdc++.h>
+using namespace std;
+
     int pivotIndex(vector<int>& nums) {
         int totalSum = 0;
         for(auto x : nums){
@@ -12,4 +13,3 @@ public:
         }
         return -1;
     }
-};
