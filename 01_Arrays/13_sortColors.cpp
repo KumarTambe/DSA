@@ -1,37 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-using namespace std;
-
-int sortColors(vector<int> &nums)
-{
-    unordered_map<int, int> map;
-    for (auto x : nums)
-    {
-        map[x]++;
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int left = 0;
+        int mid = 0;
+        int high = nums.size() - 1;
+        while(mid <= high){
+            if(nums[mid] == 0){
+                swap(nums[left] , nums[mid]);
+                left++;
+                mid++;
+            } else if (nums[mid] == 1){
+                mid++;
+            } else if (nums[mid] == 2){
+                swap(nums[mid],nums[high]);
+                high--;
+            }
+        }
     }
-    int i = 0;
-    while (map[0]--)
-    {
-        nums[i++] = 0;
-    }
-    while (map[1]--)
-    {
-        nums[i++] = 1;
-    }
-    while (map[2]--)
-    {
-        nums[i++] = 2;
-    }
-    return 0;
-}
-
-int main()
-{
-    vector<int> nums = {2, 0, 2, 1, 1, 0};
-    sortColors(nums);
-    for (auto x : nums)
-    {
-        cout << x << " ";
-    }
-}
+};
